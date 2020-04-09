@@ -4,9 +4,9 @@
 	else if(typeof define === 'function' && define.amd)
 		define([], factory);
 	else if(typeof exports === 'object')
-		exports["axios"] = factory();
+		exports["axios-for-uniapp"] = factory();
 	else
-		root["axios"] = factory();
+		root["axios-for-uniapp"] = factory();
 })(this, function() {
 return /******/ (function(modules) { // webpackBootstrap
 /******/ 	// The module cache
@@ -1369,4 +1369,4 @@ return /******/ (function(modules) { // webpackBootstrap
 /******/ ])
 });
 ;
-//# sourceMappingURL=axios.map
+//# sourceMappingURL=axios-for-uniapp.map

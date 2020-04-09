@@ -9,7 +9,7 @@ function generateConfig(name) {
       path: 'dist/',
       filename: name + '.js',
       sourceMapFilename: name + '.map',
-      library: 'axios',
+      library: 'axios-for-uniapp',
       libraryTarget: 'umd'
     },
     node: {
@@ -37,7 +37,7 @@ function generateConfig(name) {
   return config;
 }
 
-['axios', 'axios.min'].forEach(function (key) {
+['axios-for-uniapp', 'axios-for-uniapp.min'].forEach(function (key) {
   config[key] = generateConfig(key);
 });
 
