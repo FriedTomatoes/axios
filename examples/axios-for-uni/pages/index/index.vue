@@ -2,13 +2,13 @@
 	<view class="content">
 		<image class="logo" src="/static/logo.png"></image>
 		<view class="text-area">
-			<text class="title">{{title}}</text>
+			<buttton>发送post</buttton>
 		</view>
 	</view>
 </template>
 
 <script>
-	import axios from '../../common/axios.js'
+	import axios from '../../common/axios.min.js'
 	export default {
 		data() {
 			return {
@@ -16,15 +16,16 @@
 			}
 		},
 		onLoad() {
-			axios.baseURL = 'https://api.mockuai.com';
-			axios.interceptors.request.use(function fulifilled(){
-				
-			},function reject(){
-				
+			axios.interceptors.request.use(function fulifilled(config){
+				console.log("interceptors--request--fulifilled",config);
+				return config;
+			},function reject(err){
+				console.log("interceptors--request--reject",err);
 			})
-			axios.request({
-				url: '/ec/c/celebrity/info/get',
-				method: 'get'
+			axios.get('https://api.github.com/users/mzabriskie').then((res)=>{
+				console.log('success',res);
+			}).catch(err=>{
+				console.error("catch",err);
 			})
 		},
 		methods: {

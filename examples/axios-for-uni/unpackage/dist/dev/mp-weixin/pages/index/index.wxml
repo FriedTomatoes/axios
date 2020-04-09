@@ -1,0 +1,1 @@
+<view class="content"><image class="logo" src="/static/logo.png"></image><view class="text-area"><buttton vue-id="8dd740cc-1" bind:__l="__l" vue-slots="{{['default']}}">发送post</buttton></view></view>
