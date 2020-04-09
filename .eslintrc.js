@@ -1,4 +1,4 @@
-module.exports = {
+ts = {
   "globals": {
     "console": true,
     "module": true,
