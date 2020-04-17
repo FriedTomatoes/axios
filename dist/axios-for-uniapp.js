@@ -753,7 +753,8 @@ return /******/ (function(modules) { // webpackBootstrap
 	  config.data = transformData(
 	    config.data,
 	    config.headers,
-	    config.transformRequest
+	    config.transformRequest,
+	    config
 	  );
 	
 	  // Flatten headers
@@ -779,7 +780,8 @@ return /******/ (function(modules) { // webpackBootstrap
 	    response.data = transformData(
 	      response.data,
 	      response.headers,
-	      config.transformResponse
+	      config.transformResponse,
+	      config
 	    );
 	
 	    return response;
@@ -792,7 +794,8 @@ return /******/ (function(modules) { // webpackBootstrap
 	        reason.response.data = transformData(
 	          reason.response.data,
 	          reason.response.headers,
-	          config.transformResponse
+	          config.transformResponse,
+	          config
 	        );
 	      }
 	    }
@@ -818,10 +821,10 @@ return /******/ (function(modules) { // webpackBootstrap
 	 * @param {Array|Function} fns A single function or Array of functions
 	 * @returns {*} The resulting transformed data
 	 */
-	module.exports = function transformData(data, headers, fns) {
+	module.exports = function transformData(data, headers, fns, config) {
 	  /*eslint no-param-reassign:0*/
 	  utils.forEach(fns, function transform(fn) {
-	    data = fn(data, headers);
+	    data = fn(data, headers, config);
 	  });
 	
 	  return data;
@@ -961,7 +964,7 @@ return /******/ (function(modules) { // webpackBootstrap
 /***/ (function(module, exports, __webpack_require__) {
 
 	var settle = __webpack_require__(13);
-	var createError =  __webpack_require__(14);
+	var createError = __webpack_require__(14);
 	var buildFullPath = __webpack_require__(16);
 	var buildURL = __webpack_require__(5);
 	
@@ -978,18 +981,18 @@ return /******/ (function(modules) { // webpackBootstrap
 	      responseType: config.responseType
 	    };
 	    request.success = function success(res) {
-			var response = {
-			  status: res.statusCode,
-			  statusText: res.statusMessage || "",
-			  headers: request.headers,
-			  config: config,
-			  request: request,
-			  data: res.data
-			};
-			settle(resolve, reject, response);
+	      var response = {
+	        status: res.statusCode,
+	        statusText: res.statusMessage || "",
+	        headers: request.headers,
+	        config: config,
+	        request: request,
+	        data: res.data
+	      };
+	      settle(resolve, reject, response);
 	    };
 	    request.fail = function fail(error) {
-	      reject(createError('uni request error',config,0,request,error));
+	      reject(createError('uni request error', config, 0, request, error));
 	    };
 	    uni.request(request);
 	  });
