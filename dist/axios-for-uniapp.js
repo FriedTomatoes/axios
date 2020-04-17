@@ -972,7 +972,7 @@ return /******/ (function(modules) { // webpackBootstrap
 	    var request = {
 	      url: buildURL(fullPath, config.params, config.paramsSerializer),
 	      data: config.data,
-	      header: config.header,
+	      header: config.headers,
 	      method: config.method.toUpperCase(),
 	      timeout: config.timeout,
 	      responseType: config.responseType
@@ -981,7 +981,7 @@ return /******/ (function(modules) { // webpackBootstrap
 			var response = {
 			  status: res.statusCode,
 			  statusText: res.statusMessage || "",
-			  headers: request.header,
+			  headers: request.headers,
 			  config: config,
 			  request: request,
 			  data: res.data
