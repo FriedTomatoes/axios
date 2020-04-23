@@ -1196,7 +1196,7 @@ return /******/ (function(modules) { // webpackBootstrap
 	    'timeout', 'withCredentials', 'adapter', 'responseType', 'xsrfCookieName',
 	    'xsrfHeaderName', 'onUploadProgress', 'onDownloadProgress',
 	    'maxContentLength', 'maxBodyLength', 'validateStatus', 'maxRedirects', 'httpAgent',
-	    'httpsAgent', 'cancelToken', 'socketPath', 'responseEncoding'
+	    'httpsAgent', 'cancelToken', 'socketPath', 'responseEncoding',"env"
 	  ];
 	
 	  utils.forEach(valueFromConfig2Keys, function valueFromConfig2(prop) {
