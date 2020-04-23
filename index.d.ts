@@ -40,7 +40,10 @@ export type ResponseType =
   | 'json'
   | 'text'
   | 'stream'
-
+export type RequetType = 
+  | 'login'
+  | 'session_token'
+  | 'refresh_token'
 export interface AxiosRequestConfig {
   url?: string;
   method?: Method;
@@ -57,6 +60,7 @@ export interface AxiosRequestConfig {
   adapter?: AxiosAdapter;
   auth?: AxiosBasicCredentials;
   responseType?: ResponseType;
+  requestType?: RequetType;
   xsrfCookieName?: string;
   xsrfHeaderName?: string;
   onUploadProgress?: (progressEvent: ProgressEvent) => void;
